@@ -17,6 +17,24 @@ public class SpringAmqpTest {
     public void testSendMessageSimpleQueue(){
         String queueName="simple_queue";
         String message="hello,spring amqp";
-        rabbitTemplate.convertAndSend(queueName,message);
+
+        //循环发送50条消息
+        for(int i=0;i<50;i++){
+            rabbitTemplate.convertAndSend(queueName,message);
+        }
+
+    }
+    //workQueue工作队列
+    @Test
+    public void testSendMessageWorkQueue() throws InterruptedException {
+        String queueName="work_queue";
+        String message="hello,spring amqp__";
+
+        //循环发送50条消息
+        for(int i=0;i<50;i++){
+            rabbitTemplate.convertAndSend(queueName,message+i);
+            Thread.sleep(20);
+        }
+
     }
 }
