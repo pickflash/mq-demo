@@ -46,4 +46,24 @@ public class SpringAmqpTest {
 
         rabbitTemplate.convertAndSend(exchangeName,"",msg);
     }
+
+    //directExchange交换机
+    @Test
+    public void testSendDirectExchange1(){
+        String exchangeName="itcast_direct";
+
+        String msg="hello,blue";
+
+        rabbitTemplate.convertAndSend(exchangeName,"blue",msg);
+
+    }
+
+    @Test
+    public void testSendDirectExchange2(){
+        String exchangeName="itcast_direct";
+
+        String msg="hello,blue";
+
+        rabbitTemplate.convertAndSend(exchangeName,"red",msg);
+    }
 }
