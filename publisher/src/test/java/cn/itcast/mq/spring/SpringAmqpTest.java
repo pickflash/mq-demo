@@ -88,6 +88,7 @@ public class SpringAmqpTest {
         rabbitTemplate.convertAndSend(exchangeName,"china.weather",msg);
     }
 
+    //发送消息序列化
     @Test
     public void testSendObject(){
         HashMap<String,Object> map=new HashMap<>();
